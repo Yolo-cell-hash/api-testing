@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+
+class AppState with ChangeNotifier {
+  bool _isLoading = false;
+
+  String _accessToekn = '';
+  String _lockID = '';
+
+
+  bool get isLoading => _isLoading;
+  String get accessToken => _accessToekn;
+  String get lockID => _lockID;
+
+
+
+  void showLoader() {
+    _isLoading = true;
+    notifyListeners();
+  }
+
+  void hideLoader() {
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  set accessToken(String newValue) {
+    _accessToekn = newValue;
+    notifyListeners(); // Notify listeners about the change
+  }
+
+  set lockID(String newValue) {
+    _lockID = newValue;
+    notifyListeners(); // Notify listeners about the change
+  }
+
+
+}
